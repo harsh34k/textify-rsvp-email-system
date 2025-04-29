@@ -47,14 +47,14 @@ export default function RSVPForm() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 px-4">
             <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl">
-                <h2 className="text-3xl font-bold text-center text-indigo-700 mb-3">You're Invited!</h2>
+                <h2 className="text-3xl font-bold text-center text-indigo-700 mb-3">You&apos;re Invited!</h2>
                 <p className="text-center text-gray-600 mb-1">
-                    We’re excited to have you! Please let us know if you’ll be attending.
+                    We&apos;re excited to have you! Please let us know if you&apos;ll be attending.
                 </p>
                 <p className="text-center text-sm text-gray-500">
                     Invitation sent to: <span className="font-medium text-indigo-600">{email || 'your email'}</span>
                 </p>
-                <p className="text-center text-xs text-gray-400 mb-6">From: Harsh Kumar</p>
+                {/* <p className="text-center text-xs text-gray-400 mb-6">From: Harsh Kumar</p> */}
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="flex justify-center gap-4">
