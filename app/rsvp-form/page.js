@@ -122,9 +122,9 @@ export default function RSVPForm() {
                 </div>
             ) : (
                 <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl">
-                    <h2 className="text-3xl font-bold text-center text-indigo-700 mb-3">You're Invited!</h2>
+                    <h2 className="text-3xl font-bold text-center text-indigo-700 mb-3">You&aposre Invited!</h2>
                     <p className="text-center text-gray-600 mb-1">
-                        Please confirm your attendance.
+                        We sincerely hope you can attend —Kindly let us know if you will be joining us.
                     </p>
                     <p className="text-center text-sm text-gray-500 mb-6">
                         Sent to: <span className="font-medium text-indigo-600">{email}</span>
