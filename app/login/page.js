@@ -1,18 +1,17 @@
-"use client";
+'use client';
 
+import { useState } from 'react';
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
-function LoginPage() {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+export default function LoginPage() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const router = useRouter();
-
-  const handleFormSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-console.log("Form submitted", { userName, password });
+    console.log("Form submitted", { username, password });
 
-if (userName === 'admin' && password === '123456') {
+    if (username === 'admin' && password === '123456') {
       alert("Login successful!");
       router.push("/dashboard");
     } else {
@@ -21,43 +20,56 @@ if (userName === 'admin' && password === '123456') {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-sm p-8 space-y-6 bg-white rounded-2xl shadow-lg">
-        <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center px-4 font-sans">
+      <div className="bg-white shadow-2xl rounded-2xl flex flex-col md:flex-row overflow-hidden max-w-5xl w-full min-h-[30rem]">
 
-        <form onSubmit={handleFormSubmit} className="space-y-5">
-          <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700">Username</label>
-            <input
-              type="text"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              required
-              className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
+        {/* Left - Branding */}
+        <div className="md:w-1/2 bg-gradient-to-br from-[#5577c2] to-[#0005a0] p-10 text-white flex flex-col justify-center">
+          <img src="/textify-logo.jpg" alt="Textify Logo" className="h-15 w-14 mb-4" />
+          <h1 className="text-4xl font-bold mb-4">Welcom Back!</h1>
+          <p className="text-lg leading-relaxed">
+            Please login to access your dashboard.
+          </p>
+        </div>
 
-          <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-          </div>
+        {/* Right - Login Form */}
+        <div className="md:w-1/2 p-10 flex flex-col justify-center bg-white">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Login</h2>
 
-          <button
-            type="submit"
-            className="w-full px-4 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-all duration-200"
-          >
-            Sign In
-          </button>
-        </form>
+          <form className="space-y-5" onSubmit={handleLogin}>
+            <div>
+              <label className="text-sm font-medium text-gray-700 block mb-1">Username</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Username"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 text-gray-800"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-700 block mb-1">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 text-gray-800"
+              />
+            </div>
+
+            <button
+              type="submit"
+
+              className="w-full py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-200 font-medium"
+            >
+              Continue
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
-
-export default LoginPage;
