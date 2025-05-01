@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function POST(request) {
-    const { email, response, sheetId } = await request.json();
+    const { email, responses, sheetId } = await request.json();
 
     const url = process.env.NEXT_PUBLIC_GSCRIPT_URL;
 
@@ -10,7 +10,7 @@ export async function POST(request) {
     //     response,
     //     sheetId,
     // };
-    console.log("response", response);
+    console.log("response", responses);
 
 
     const res = await fetch(url, {
@@ -22,7 +22,7 @@ export async function POST(request) {
             action: "updateResponse",
             sheetId,
             email,
-            response
+            responses
         })
     });
 
