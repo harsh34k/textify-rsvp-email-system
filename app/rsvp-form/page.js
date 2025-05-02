@@ -89,8 +89,8 @@ export default function RSVPForm() {
                 </div>
             ) : (
                 <div className="w-full max-w-xl p-8 bg-white rounded-3xl shadow-2xl border border-yellow-200">
-                    <h2 className="text-4xl font-bold text-center text-yellow-700 mb-2" style={{ fontFamily: 'cursive' }}>You're Invited!</h2>
-                    <p className="text-center text-gray-700 text-base mb-1">We'd love to know if you'll be there.</p>
+                    <h2 className="text-4xl font-bold text-center text-yellow-700 mb-2" style={{ fontFamily: 'cursive' }}>You&apos;re Invited!</h2>
+                    <p className="text-center text-gray-700 text-base mb-1">We&apos;d love to know if you&apos;ll be there.</p>
                     <p className="text-center text-xs text-gray-500 mb-6 italic">
                         Invitation sent to: <span className="text-yellow-700">{email}</span>
                     </p>
