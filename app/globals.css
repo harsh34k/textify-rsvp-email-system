@@ -41,3 +41,20 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* Add to your global.css or CSS module */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.party-element {
+  animation: float 3s ease-in-out infinite;
+}
