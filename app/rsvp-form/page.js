@@ -1,5 +1,6 @@
 'use client';
 
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 export default function RSVPForm() {
@@ -15,12 +16,12 @@ export default function RSVPForm() {
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
         const id = urlParams.get('sheetId');
-        const sheetName = urlParams.get('sheetName');
 
-        if (token && id && sheetName) {
-            fetch(`https://script.google.com/macros/s/AKfycbyt4EjDYEKCwCRXufIYFC97x9yVm4KapWLMtlodMC5bY2VhefTa_6gO4GN8rPrMRsb1/exec?token=${token}&sheetId=${id}&sheetName=${sheetName}`)
+        if (token && id) {
+            const response = fetch(`https://script.google.com/macros/s/AKfycbyt4EjDYEKCwCRXufIYFC97x9yVm4KapWLMtlodMC5bY2VhefTa_6gO4GN8rPrMRsb1/exec?token=${token}&sheetId=${id}`)
                 .then(res => res.json())
                 .then(data => {
+                    console.log("response", data);
                     setEmail(data.email);
                     setSheetId(id);
                     setFields(data.customFields || []);
@@ -31,6 +32,8 @@ export default function RSVPForm() {
                     setStatus('❌ Failed to fetch form data.');
                     setLoading(false);
                 });
+
+
         } else {
             setStatus('❌ Missing sheetId, sheetName, or token in URL');
             setLoading(false);
@@ -49,26 +52,35 @@ export default function RSVPForm() {
             action: "updateResponse",
             sheetId,
             email,
-            responses: formData,
+            response: formData,
         };
 
         try {
-            const res = await fetch(process.env.NEXT_PUBLIC_GSCRIPT_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(payload),
-            });
-
-            const data = await res.json();
-            if (data.status === "success") {
-                setStatus('✅ RSVP submitted successfully!');
-                setSubmitted(true);
-            } else {
-                setStatus(`❌ Error: ${data.message}`);
-            }
+            // const res = await fetch(process.env.NEXT_PUBLIC_GSCRIPT_URL, {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            //     body: JSON.stringify(payload),
+            // });
+            const res = await axios.post(
+                process.env.NEXT_PUBLIC_GSCRIPT_URL,
+                {
+                    action: "updateResponse",
+                    sheetId,
+                    email,
+                    response: formData,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8',
+                        // 'Content-Type': 'application/json',
+                    }
+                }
+            );
+            setStatus('✅ RSVP submitted successfully!');
         } catch (err) {
             console.error(err);
             setStatus('❌ Submission failed.');
+            setStatus(`❌ Error: ${data.message}`);
         }
     };
 
