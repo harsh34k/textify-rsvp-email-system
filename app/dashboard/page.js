@@ -63,16 +63,21 @@ function Dashboard() {
           <p className="text-sm text-gray-600 text-center">
             📋 Please make sure your Google Sheet contains the following columns:
             <br />
-            <span className="font-semibold text-gray-800">Name, Email, Template, Email Status, Response</span>
+            <span className="font-semibold text-gray-800">Name, Email, Template, Email Status, Responded,Response</span>
           </p>
 
-          <div className="w-full border rounded-lg overflow-hidden">
+          <div className="w-full border rounded-lg overflow-hidden ">
             <img
               src="/excel-preview.png"
               alt="Google Sheet Example"
-              className="w-full object-cover"
+              className="w-full t-scale object-cover"
             />
           </div>
+        </div>
+        <div>
+          <p className="text-sm text-gray-600 text-center">
+            Have a look at our <a href="https://docs.google.com/spreadsheets/d/1J3Z9g3RWVcmikdmERmxV-8tg2wrM786HUFqJ0i02qog/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline">Google Sheet Template</a> for reference.
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5 pt-2">
