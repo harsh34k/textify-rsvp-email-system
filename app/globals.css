@@ -58,3 +58,7 @@ body {
 .party-element {
   animation: float 3s ease-in-out infinite;
 }
+
+.t-scale {
+  transform: scaleY(1.25)
+}
