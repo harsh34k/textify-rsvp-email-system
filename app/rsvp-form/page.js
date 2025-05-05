@@ -57,11 +57,6 @@ export default function RSVPForm() {
         };
 
         try {
-            // const res = await fetch(process.env.NEXT_PUBLIC_GSCRIPT_URL, {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            //     body: JSON.stringify(payload),
-            // });
             const res = await axios.post(
                 process.env.NEXT_PUBLIC_GSCRIPT_URL,
                 {
