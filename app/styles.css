@@ -1,0 +1,118 @@
+/* Editor Container */
+.ProseMirror {
+    min-height: 300px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    margin-top: 8px;
+}
+
+.ProseMirror:focus {
+    outline: none;
+    border-color: #7f42a7;
+    box-shadow: 0 0 0 2px rgba(127, 66, 167, 0.1);
+}
+
+/* Menu Bar */
+.control-group {
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 8px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.button-group button {
+    background: white;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.button-group button:hover {
+    background: #f1f5f9;
+}
+
+.button-group button.is-active {
+    background: #4f39f6;
+    color: white;
+    border-color: #4f39f6;
+}
+
+/* Editor Content Styles */
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+    margin: 1em 0 0.5em;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.ProseMirror h1 {
+    font-size: 2em;
+}
+
+.ProseMirror h2 {
+    font-size: 1.5em;
+}
+
+.ProseMirror h3 {
+    font-size: 1.17em;
+}
+
+.ProseMirror h4 {
+    font-size: 1em;
+}
+
+.ProseMirror h5 {
+    font-size: 0.83em;
+}
+
+.ProseMirror h6 {
+    font-size: 0.67em;
+}
+
+.ProseMirror p {
+    margin: 0 0 1em;
+    line-height: 1.6;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+    padding-left: 2em;
+    margin: 1em 0;
+}
+
+.ProseMirror blockquote {
+    padding-left: 1em;
+    border-left: 3px solid #e2e8f0;
+    margin: 1em 0;
+    color: #64748b;
+}
+
+.ProseMirror img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Add some basic typography */
+.ProseMirror {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #334155;
+}
