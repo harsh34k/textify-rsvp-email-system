@@ -1,8 +1,15 @@
 'use client';
 
 import axios from "axios";
+import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
-import BundledEditor from "@/components/editor/minimal-tiptap/BundledEditor";
+const BundledEditor = dynamic(
+  () => import('@/components/editor/minimal-tiptap/BundledEditor'),
+  {
+    ssr: false,
+    loading: () => <p>Loading editor...</p>
+  }
+);
 
 function Dashboard() {
   const [sheetLink, setSheetLink] = useState("");
@@ -128,7 +135,7 @@ function Dashboard() {
                 height: 500,
                 menubar: 'file edit insert view format table tools help',
                 plugins: [
-                  'image', 'editimage', 'media'
+                  'image', 'media'
                 ],
                 // plugins: [
                 //   'a11ychecker', 'advlist', 'anchor', 'autolink', 'help', 'link', 'lists',
